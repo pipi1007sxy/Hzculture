@@ -1,0 +1,251 @@
+body{
+	width: 1920px;
+	height: 1080px;
+	background-image:url("../img/westlake/westlake.jpg");
+	background-size:100%;
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	overflow:hidden;
+}
+div{
+	white-space: nowrap;
+}
+.disnon{
+	display: none;
+}
+.video{
+	position:fixed;
+	width:40%;
+	height:40%;
+	top:20%;
+	left:32%;
+	z-index: 10;
+}
+#menu{
+	background-color:#becda3;
+	border-radius: 25px;
+	font-size:50px;
+	font-weight: bold;
+	font-family:FZYaoTi;
+	color:#5f633d;
+	text-align: center;
+	line-height:70px;
+	position:fixed;
+	top:40px;
+	left:84%;
+	width:10%;
+	height:8%;
+}
+#box_repo{
+	background-color: bisque;
+	border-radius: 25px;
+	font-size:35px;
+	font-weight: bold;
+	font-family:FZYaoTi;
+	color:saddlebrown;
+	text-align: center;
+	line-height:67px;
+	position:fixed;
+	top:-10px;
+	left:70%;
+	width:15%;
+	height:6%;
+}
+#into_look{
+	background-color:darkseagreen;
+	border-radius: 25px;
+	font-size:30px;
+	font-weight: bold;
+	font-family:FZYaoTi;
+	color:darkgreen;
+	text-align: center;
+	line-height:60px;
+	position:fixed;
+	top:100px;
+	left:40%;
+	width:23%;
+	height:7%;
+}
+.c_cont{
+	position:fixed;
+	left:490px;
+	top:715px;
+	display: flex;
+	justify-content:space-between;
+	width: 45%;
+	height: 10%;
+	z-index:100;
+}
+#A{
+	background-color:#beba71;
+	font-size: 30px;
+	line-height: 10px;
+	width: 1%;
+	height:5%;
+	text-align: right;
+	text-indent: -6px;
+	margin-left:0px;
+	border-radius: 100px;
+	box-shadow:5px 5px 5px 3px #000000;
+	border:20px solid transparent;
+}
+#B{
+	background-color:#beba71;
+	font-size: 30px;
+	line-height: 10px;
+	width: 1%;
+	height:5%;
+	text-align: left;
+	margin-right:70px;
+	margin-left:60px;
+	text-indent: -6px;
+	border-radius: 100px;
+	box-shadow:5px 5px 5px 3px #000000;
+	border:20px solid transparent;
+}
+#C{
+	background-color:#beba71;
+	font-size: 30px;
+	line-height: 10px;
+	width: 1%;
+	height:5%;
+	margin-right:-10px;
+	text-align: left;
+	text-indent: -6px;
+	border-radius: 100px;
+	box-shadow:5px 5px 5px 3px #000000;
+	border:20px solid transparent;
+}
+#D{
+	background-color: #beba71;
+	font-size: 30px;
+	line-height: 10px;
+	width: 1%;
+	height:5%;
+	text-align: left;
+	margin-left:63px;
+	margin-right: 107px;
+	text-indent: -6px;
+	border-radius: 100px;
+	box-shadow:5px 5px 5px 3px #000000;
+	border:20px solid transparent;
+}
+
+#A:hover{
+	transform: translate(0, -10px);
+	transform: scale(1.2);
+
+}
+#B:hover{
+	transform: translate(0, -10px);
+	transform: scale(1.2);
+}
+#C:hover{
+	transform: translate(0, -10px);
+	transform: scale(1.2);
+}
+#D:hover{
+	transform: translate(0, -10px);
+	transform: scale(1.2);
+}
+#litbox{
+	background-image:url("../img/westlake/litlit.PNG");
+	background-size:100%; 
+	background-repeat:no-repeat;
+	position: fixed;
+	width:35%;
+	height:70%; 
+	top:37%;
+	left:-5%;
+}
+#return{
+	background-image:url("../img/sreturn.PNG");
+	background-color:#eefefe;
+	background-size:100%; 
+	background-repeat:no-repeat;
+	border-radius:30px;
+	position: absolute;
+	left:5%;
+	top:5%;
+	width:6%;
+	height:10.5%; 
+}
+#dialog{
+	background-image:url("../img/dialogbox1.PNG");
+	background-size:90%; 
+	background-repeat:no-repeat;
+	position:fixed;
+	width:85%;
+	height:35%; 
+	top:65%;
+	left:25%;
+	opacity: 0;
+	animation:fadein 1s ease forwards;
+}
+#page{
+	position:fixed;
+	width:66%;
+	font-size:40px;
+	font-family:FZYaoTi;
+	top:65%;
+	left:30%;
+	line-height: 70px;
+}
+@keyframes fadein{
+	 from{opacity: 0;}
+	
+	 to{opacity: 0.8;}
+}
+.all_img{
+	background-size:100%;
+	background-repeat:no-repeat;
+	position:fixed;
+	width:15%;
+	height:25%;
+	top:26%;
+	left:44%;
+	z-index: 10;
+}
+.all_img:hover{
+	box-shadow: 0 0 100px #ffffff;
+}
+#img1{
+	background-image:url("../img/westlake/wl-three.jpg");
+}
+#img2{
+	background-image:url("../img/westlake/wl-heye.jpg");
+}
+#img3{
+	background-image:url("../img/westlake/wl-tower.jpg");
+}
+.star{
+	background-image:url("../img/star.PNG");
+	background-size:50%; 
+	background-repeat:no-repeat;
+	position:fixed;
+	width:8%;
+	height:13%; 
+}
+#s1{
+	top:20%;
+	left:40%;
+}
+#s2{
+	top:40%;
+	left:71%;
+}
+#s3{
+	top:10px;
+	left:500px;
+}
+.small-show{
+	transition: 0.5s;
+	transform: translate(100px,100px) scale(1);
+}
+.big-show{
+	transition: 0.5s;
+	transform: translate(100px,100px) scale(1.5);
+}
+.stay-show{
+	background-size:80%; 
+}

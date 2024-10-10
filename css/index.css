@@ -1,0 +1,164 @@
+body{
+	width:1920px;
+    height:1080px;
+    display: flex;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.bg{
+	align-items: center;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity(0.5);
+}
+img{
+	max-width:100%;/*自适应*/
+	height: auto;
+	width:auto;
+	position:fixed;
+}
+#Title{
+	width:40%;
+	height:95%;
+	position:absolute;
+	left:10%;
+	top:2%;
+}
+#Yniao{
+	width:22.5%;
+	height:40%;
+	position:absolute;
+	color: rgba(142,99,10);
+	right:5%;
+	top:3%;
+	cursor: pointer;
+	box-shadow: 0 0 25px #fff inset,0 0 25px #fff;
+	border-radius: 55%;
+}
+@keyframes bei{
+            from{opacity:0;
+            top:40%;
+            }
+            to{opacity:1;
+            top:28%;
+            
+            }
+}
+@keyframes rotate{
+	from{
+		transform:scale(1);
+	}
+	to{
+		transform:scale(1.1);
+	}
+}
+#Yniao:hover
+{
+transform: scale(1.05);
+}
+span{
+	font-size:28px;
+	color:gray;
+	position:absolute;
+	right:11%;
+	top:45%;
+	font-family:"agency fb";
+	text-shadow: 0.1em 0.1em 0.2em #FFFFFF;
+}
+#zhis{
+	width:6%;
+	height:20%;
+	position:absolute;
+	top:30%;
+	right:13%;
+	transform: translateY(45px);
+	animation:bei 3s linear infinite;	
+}
+#Biaos{
+	width:11%;
+	height:20%;
+	position:absolute;
+	left:17%;
+	bottom:15%;
+}
+#Build{
+	width:20%;
+	height:30%;
+	position:absolute;
+	right:6%;
+	bottom:10%;
+	opacity: 0;
+}
+#zk{
+	width:26%;
+	height:32%;
+	position:absolute;
+	top:10%;
+	right:35%;
+	border:5px solid rgba(208,199,182);
+	border-radius: 20%;
+	background:rgba(10,6,5);/*字框背景颜色*/
+	background-clip: padding-box;
+	box-shadow: 0 0 15px rgba(142,99,10);
+	opacity: 0;
+}
+#content{
+	position:absolute;
+	top:9%;
+	left:40%;
+	color:white;
+}
+#in{
+	width:5%;
+	height:4%;
+	position:absolute;
+	top:44%;
+	left:58%;
+	opacity: 0;
+	animation:inter 1.5s linear infinite;
+}
+@keyframes inter{
+	0%{
+	width:5%;
+	height:4%;
+	}
+	50%{
+	width:6%;
+	height:5%;
+	}
+	100%{
+	width:5%;
+	height:4%;
+	}
+}
+#come{
+	width:65%;
+	height:80%;
+	position:absolute;
+	top:10%;
+	left:17%;
+}
+#XX{
+	width:2%;
+	height:3%;
+	position:absolute;
+	bottom: 33%;
+	left:61.8%;
+	animation:rip 1.5s linear infinite;/*放大缩小*/
+}
+@keyframes rip{
+	0%{
+	width:2%;
+	height:4%;
+	}
+	50%{
+	width:3%;
+	height:5%;
+	}
+	100%{
+	width:2%;
+	height:4%;
+	}
+}
