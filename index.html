@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>亚运吉祥物与杭州文化</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<style>
+			@import url("css/index.css" );
+		</style>
+
+	</head>
+	<body>
+		<div id="mian">
+			<img class="bg" src="img/bgy1.png">
+			<img id="Biaos" src="img/biao.png">
+			<img id="Title" src="img/zt.png">
+			<img id="Yniao" src="img/tut.png" onclick="Showstr()">
+			<div id="zk"></div>
+			<p id="content"></p>
+			<div id="Str" style="display: none;">
+				良渚文化玉器“玉琮”，也叫玉琮王，
+				
+				其四面均雕刻有完整的神人兽面图案，
+				
+				图案上部分为人像，中部是兽面，下部为兽足
+				
+				无论是人像还是兽面，都有一种凶猛逼人的气势，
+				
+				给人以神秘、恐惧之感。
+						     
+			</div>
+		</div>
+		<img id="in" src="img/inter.png" onclick="change()">
+		<img id="come" src="img/dituu.png" style="display:none;">
+		<a href="ship.html" target="_self"><img id="XX" src="img/xx1.png" style="display:none;"></a>
+		<span id="w">神人兽面纹</span>
+		<img id="zhis" src="img/zhis.png">
+		<script language="javascript">
+			//控制动画
+			const image = document.getElementById('Yniao');
+			image.addEventListener('click', () => {
+			  image.style.animationPlayState = 'paused'; // 点击后暂停动画
+			  document.getElementById("zhis").style.display="none";
+			});
+			//文字输出功能
+			function Showstr(){
+				document.getElementById("Yniao").onclick=null;
+				document.getElementById("zk").style.opacity="0.3";
+				var index=0;
+				var str=document.getElementById("Str").innerHTML;
+
+				function type(){
+					if(index==str.length){
+						document.getElementById("in").style.opacity="1";
+//						index=0;文字加载完成之后图标出现，如果要让 文字多次循坏则有index=0即可
+					}
+					document.getElementById("content").innerText=str.substring(0,index++);
+				}
+				setInterval(type,26);//控制字的速度
+			}
+			//改变画面
+			function change(){
+				document.getElementById("Biaos").style.display="none";
+				document.getElementById("Title").style.display="none";
+				document.getElementById("Yniao").style.display="none";
+				document.getElementById("zk").style.display="none";
+				document.getElementById("content").style.display="none";
+				document.getElementById("Str").style.display="none";
+				document.getElementById("in").style.display="none";
+				document.getElementById("zhis").style.display="none";
+				document.getElementById("w").style.display="none";
+				document.getElementById("come").style.display="block";
+				document.getElementById("XX").style.display="block";
+			}
+		</script>
+	</body>
+</html>

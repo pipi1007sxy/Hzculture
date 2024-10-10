@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>良渚古城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel='stylesheet' type="text/css" href="css/n.css"/>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<img class="bg" src="img/bg2.png"/>
+		<img id="cong" src="img/cong.png" />
+		<div id="s1" class="star small-show" ></div>
+		<div id="s3" class="star small-show" ></div>
+		<div id="dialog"></div>
+		<p id="page"></p>
+		<div id="into_look" class="disnon" >点击照片观看相关视频吧！</div>
+		<a href= "menu.html" target="_self" ><div id="menu" class="disnon" a="">菜单</div></a>
+		<div id="return" class="disnon" onclick="re()"></div>
+		<div id="img1" class="all_img disnon"></div>
+		<div id="img3" class="all_img disnon"></div>
+		<video id="video1" class="disnon video" controls="controls" src="img/nvideo1.mp4"></video>
+		<video id="video3" class="disnon video" controls="controls" src="img/nvideo2.mp4"></video>
+		<div id="box_repo" class="small-show disnon" onclick="out()">点击进入答题</div>
+		
+		<div id="question">
+			&nbsp;&nbsp;&nbsp;琮琮的名字由什么而来？
+		</div>
+		<form action method="post" name="form1" id="form1">
+			<input type="button" value="A.&nbsp;良渚古城出土的玉琮" name="answer" onclick="send()" id="a1">
+			<input type="button" value="B.&nbsp;西湖中无穷碧色的接天莲叶" name="answer" onclick="send()" id="a2">
+			<input type="button" value="C.&nbsp;京杭大运河的拱宸桥" name="answer" onclick="send()" id="a3">
+			<input type="button" value="D.&nbsp;西湖的三潭映月" name="answer" onclick="send()" id="a4">
+			<div id="da" style="display:none">正确答案:A</div>
+		</form>
+		<a href= "menu.html" target="_self" ><img id="back" src="img/back.png"/></a>
+	</body>
+	<script>
+		// 鼠标悬停星星放大不动
+		$("#s1").mouseover(function(){//鼠标悬停函数
+			clearInterval();
+			$("#s1").addClass("stay-show");
+		})
+		$("#s1").mouseout(function(){//鼠标移除函数
+			$("#s1").removeClass("stay-show");
+			$("#s1").addClass("small-show");
+		})
+		
+		$("#s3").mouseover(function(){//鼠标悬停函数
+			clearInterval();
+			$("#s3").addClass("stay-show");
+		})
+		$("#s3").mouseout(function(){//鼠标移除函数
+			$("#s3").removeClass("stay-show");
+			$("#s3").addClass("small-show");
+		})
+		
+		var text_start="哈喽，我是亚运吉祥物琮琮。我的设计灵感来源于良渚，名字源于良渚古城遗址出土的代表性文物玉琮。快来点击地图上的地点，了解我身上的良渚元素吧！";
+		var text=text_start;
+		var i=0;
+		var click_num_1=0,click_num_2=0,click_num_3=0;
+		var num=text.length;
+		function show() {
+		        var shower = text.substr(0,i);
+		        document.getElementById("page").innerHTML = shower;
+		        i++;
+		        if(i + 1 >= num){
+		            clearInterval("done");
+		        }
+		    }
+		var done=setInterval("show()",50);
+		
+		//判断是哪个星星被点击
+			$(".star").click(function(e){
+				$("#s1").css("display","none");
+				$("#s3").css("display","none");
+				if(e.target == $("#s1")[0]){
+					text="这里是良渚古城，我的名字就源于这里出土的玉琮，这里是长江下游地区首次发现的新石器时代城址，一直被誉为“中华第一城”。";
+					i=0;
+					click_num_1++;
+					
+					$("#page").css("font-size","30px");
+					$("#img3").css("display","none");
+					$("#img1").fadeIn(700);
+					
+					$("#into_look").fadeIn(700);
+					$("#return").css("display","block");
+		
+				}else if(e.target == $("#s3")[0]){
+					text="玉琮是一种内圆外方的筒型玉器，是古代人们用于祭祀神明的一种礼器。最早的玉琮已经距今约5100年啦，我的名字也从中由来。";
+					i=0;
+					click_num_3++;
+					$("#img1").css("display","none");
+					$("#img3").fadeIn(700);
+					$("#into_look").fadeIn(700);
+					$("#return").css("display","block");
+		
+			}
+			if(click_num_1!=0 && click_num_3 !=0){
+				$("#box_repo").css("display","none");
+			   }
+			});
+			
+			$("#return").click(function(e){
+				if(e.target==$("#return")[0]){
+					text=text_start;
+					$("#img1").fadeOut(700);
+					$("#img3").fadeOut(700);
+					$("#s1").css("display","block");
+					$("#s3").css("display","block");
+					$(".video").css("display","none");
+					$("#page").css("font-size","40px");
+					$("#return").css("display","none");
+					$("#all_cho").css("display","none");
+					$("#into_look").css("display","none");
+					$("#box_repo").css("display","none");
+					$("#form1").css("display","none");
+					$("#question").css("display","none");
+					$("#dialog").css("display","block");
+					$("#page").css("display","block");
+					$("#da").css("display","none");
+					$("#back").css("display","none");
+				}
+			});
+			
+			$("#img1").click(function(e){
+				if(e.target==$("#img1")[0]){
+					$("#img1").css("display","none");
+					$("#video1").css("display","block");
+					$("#video3").css("display","none");
+					$("#box_repo").css("display","block");
+					$("#box_repo").fadeIn(700);
+				}
+			});
+			$("#img3").click(function(e){
+				if(e.target==$("#img3")[0]){
+					$("#img3").css("display","none");
+					$("#video3").css("display","block");
+					$("#video1").css("display","none");
+					$("#box_repo").css("display","block");
+					$("#box_repo").fadeIn(700);
+				}
+			});
+			
+			
+			
+				
+	</script>
+	<script language="javascript">
+		function send(){
+			document.getElementById("back").style.display="block";
+			var dan=document.form1.answer.value;
+			if(dan=="answer1"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer2"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer3"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer4"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else{
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}
+			
+		}
+		function out(){
+			document.getElementById("question").style.display="block";
+			document.getElementById("form1").style.display="block";
+			document.getElementById("video1").style.display="none";
+			document.getElementById("video3").style.display="none";
+			document.getElementById("page").style.display="none";
+			document.getElementById("box_repo").style.display="none";
+			document.getElementById("into_look").style.display="none";
+			document.getElementById("dialog").style.display="none";
+		}
+	</script>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<title>京杭大运河</title>
+			<link rel='stylesheet' type="text/css" href="css/river.css"/>
+			<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+			<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+		</head>
+		<body>
+			<div id="box_repo" class="small-show disnon">点击进入答题</div>
+			<div id="all_cho" class="disnon">
+				<div id="A" >A</div>
+				<div id="B" >B</div>
+				<div id="C" >C</div>
+				<div id="D" >D</div>
+			</div>
+			<div id="litbox"></div>
+			<div id="s1" class="star small-show" ></div>
+			<div id="dialog"></div>
+			<p id="page"></p>
+			<div id="return" class="disnon" onclick="re()"></div>
+			<div id="img1" class="all_img disnon"></div>
+			<div id="into_look" class="disnon" >点击照片观看相关视频吧！</div>
+			<a href= "menu.html" target="_self" ><div id="menu" class="disnon" a="">菜单</div></a>
+			<video id="video1" class="disnon video" controls="controls" src="img/river/video.mp4"></video>
+		</body>
+		<script>
+			// 星星放大缩小
+			var i=0;
+			var int=self.setInterval("clock()",500);
+			function clock(){
+				i++;
+				if(parseInt(i/2)==i/2){
+					$(".star").addClass("big-show");
+					$(".star").removeClass("small-show");
+					$("#box_repo").addClass("big-show");
+					$("#box_repo").removeClass("small-show");
+				}
+				else{
+					$(".star").removeClass("big-show");
+					$(".star").addClass("small-show");
+					$("#box_repo").removeClass("big-show");
+					$("#box_repo").addClass("small-show");
+				}
+			}
+			// 鼠标悬停星星放大不动
+			$("#s1").mouseover(function(){//鼠标悬停函数
+				clearInterval();
+				$("#s1").addClass("stay-show");
+			})
+			$("#s1").mouseout(function(){//鼠标移除函数
+				$("#s1").removeClass("stay-show");
+				$("#s1").addClass("small-show");
+			})
+			$("#s2").mouseover(function(){//鼠标悬停函数
+				clearInterval();
+				$("#s2").addClass("stay-show");
+			})
+			$("#s2").mouseout(function(){//鼠标移除函数
+				$("#s2").removeClass("stay-show");
+				$("#s2").addClass("small-show");
+			})
+			$("#s3").mouseover(function(){//鼠标悬停函数
+				clearInterval();
+				$("#s3").addClass("stay-show");
+			})
+			$("#s3").mouseout(function(){//鼠标移除函数
+				$("#s3").removeClass("stay-show");
+				$("#s3").addClass("small-show");
+			})
+			
+			
+			//介绍文字逐渐输出
+			var text_start="嗨！我终于等到你啦！我来向你介绍一下我自己吧！我是亚运吉祥物宸宸。我在京杭大运河出生、成长，畅游在钱塘江，踏着汹涌的钱塘湖乘风破浪，与每一朵浪花都是好朋友。快来点击地图上的地点，了解我身上的京杭元素吧！";
+			var text=text_start;
+			var i=0;
+			var click_num_1=0,click_num_2=0,click_num_3=0;
+			var num=text.length;
+			function show() {
+			        var shower = text.substr(0,i);
+			        document.getElementById("page").innerHTML = shower;
+			        i++;
+			        if(i + 1 >= num){
+			            clearInterval("done");
+			        }
+			    }
+			var done=setInterval("show()",50);
+			
+				//判断是哪个星星被点击
+				$(".star").click(function(e){
+					if(e.target == $("#s1")[0]){
+						text="这里是拱宸桥，坐落于京杭大运河之上,是杭城古桥中最长的石拱桥。我额头上的摄像头设计灵感就是拱宸桥与其水中倒影，它记录着每一个来到杭州、生活在杭州人的美好回忆和幸福笑脸。";
+						i=0;
+						click_num_1++;
+						$("#page").css("font-size","40px");
+						$("#img2").css("display","none");
+						$("#img3").css("display","none");
+						$("#s1").css("display","none");
+						$("#img1").fadeIn(700);
+						$("#into_look").fadeIn(700);
+						$("#into_repo").css("display","none");
+						$("#return").css("display","block");
+					}
+				
+				});
+	
+				//判断是返回键被点击
+				$("#return").click(function(e){
+					if(e.target==$("#return")[0]){
+						text=text_start;
+						$("#img1").fadeOut(700);
+						$("#s1").fadeIn(700);
+						$("#page").css("font-size","40px");
+						$("#return").css("display","none");
+						$("#all_cho").css("display","none");
+						$("#into_look").css("display","none");
+						$(".video").css("display","none");
+					}
+				});
+				//判断图片被点击
+				
+				$("#img1").click(function(e){
+					if(e.target==$("#img1")[0]){
+						$("#img1").css("display","none");
+						$("#video1").css("display","block");
+						
+					}
+				});
+			   //进入答题
+			   var text_1="宸宸以机器人的造型代表什么世界遗产呢？<br/>  A.西湖 B.良渚 C.京杭大运河 D.河坊街";
+			   var text_true="恭喜你，答对啦！点击右上角菜单按钮去了解我的朋友莲莲和宸宸吧！";
+			   var text_false="宸宸以机器人的造型代表什么世界遗产呢？<br/>  A.西湖 B.良渚 C.京杭大运河 D.河坊街 <br/>不对噢，你再想想，再选一次吧！"
+			   var exam=1;
+			    $("#box_repo").click(function(e){
+					$(".video").css("display","none");
+					if(e.target==$("#box_repo")[0]){
+						$(".all_img").css("display","none");
+						$(".star").css("display","none");
+						$("#box_repo").css("display","none");
+						
+						$("#all_cho").addClass("c_cont");
+						$("#all_cho").fadeIn(1000);
+						$("#into_look").css("display","none");
+						$("#page").css("top","63%");
+						$("#page").css("line-height","70px");
+						
+						switch(exam){
+							case(1): 
+								text=text_1;
+								exam++;
+								$("#all_cho").click(function(e){
+									if(e.target==$("#A")[0]){
+										text=text_false;
+										}
+									if(e.target==$("#B")[0]){
+										text=text_false;
+										}
+									if(e.target==$("#C")[0]){
+										text=text_true;
+										$("#menu").fadeIn(700);
+										$("#all_cho").css("display","none");
+										}
+									if(e.target==$("#D")[0]){
+										text=text_false;
+										}
+								})
+								break;
+							case(2): 
+								text=text_2;
+								exam++;
+								break;
+							case(3): 
+								text=text_3;
+								
+								break;
+						}
+					
+					}
+				})
+				//图片被点击
+				$("#img1").click(function(e){
+					if(e.target==$("#img1")[0]){
+					$("#box_repo").fadeIn(700);
+					}
+				});
+			//三潭视频
+			
+		</script>
+	</html>
+	
+</html>

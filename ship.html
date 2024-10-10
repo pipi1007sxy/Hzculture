@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>亚运吉祥物与杭州文化</title>
+		<meta http="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<style>@import url("css/ship.css" );</style>
+	</head>
+	<body>
+		<img class="bg" src="img/bgy1.png">
+		<div class="rule" style="top:20%;left:6%;">
+			&nbsp;&nbsp;&nbsp;&nbsp;规则：请观看视频，根据视频内容分析并从下列A、B、C、D四个选项中选择正确答案（选项会在视频播放结束之后出现）。
+		</div>
+		<div id="question">
+			&nbsp;&nbsp;&nbsp;&nbsp;杭州亚运会吉祥物“江南忆”组合的3个机器人中，琮琮代表文化遗产__，莲莲代表文化遗产__，宸宸代表文化遗产__。
+		</div>
+		<form action method="post" name="form1" id="form1">
+			<input type="button" value="A.&nbsp;良渚古城遗址、西湖、京杭大运河" name="answer" onclick="send()" id="a1">
+			<input type="button" value="B.&nbsp;西湖、良渚古城遗址、京杭大运河" name="answer" onclick="send()" id="a2">
+			<input type="button" value="C.&nbsp;京杭大运河、西湖、良渚古城遗址" name="answer" onclick="send()" id="a3">
+			<input type="button" value="D.&nbsp;良渚古城遗址、京杭大运河、西湖" name="answer" onclick="send()" id="a4">
+			<div id="da" style="display:none">正确答案:A</div>
+		</form>
+		<video class="video" id="video" controls="controls" src="img/intro.mp4" poster="img/wz1.png"></video>
+		<div id="next" style="display:none">
+			<img id="nk" src="img/nk.png">
+			<p>那么接下来让我们一起深入了解良渚古城遗址、西湖、京杭大运河这三个杭州文化遗产吧！</p>
+			<a href="menu.html" target="_self"><img id="ok" src="img/ok.png"></a>
+		</div>
+	</body>
+	<script language="javascript">
+		function send(){
+			var dan=document.form1.answer.value;
+			if(dan=="answer1"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer2"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer3"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else if(dan=="answer4"){
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}else{
+				document.getElementById("da").style.display="block";
+				document.getElementById("next").style.display="block";
+			}
+		}
+		const video = document.getElementById('video');
+			video.addEventListener('ended', () => {
+			  document.getElementById("form1").style.display="block";
+			});
+	</script>
+</html>

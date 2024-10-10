@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>西湖</title>
+		<link rel='stylesheet' type="text/css" href="css/westlake.css"/>
+		<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="box_repo" class="small-show disnon">点击进入答题</div>
+		<div id="all_cho" class="disnon">
+			<div id="A" >A</div>
+			<div id="B" >B</div>
+			<div id="C" >C</div>
+			<div id="D" >D</div>
+		</div>
+		<div id="litbox"></div>
+		<div id="s1" class="star small-show" ></div>
+		<div id="s2" class="star small-show" ></div>
+		<div id="s3" class="star small-show" ></div>
+		<div id="dialog"></div>
+		<p id="page"></p>
+		<div id="return" class="disnon" onclick="re()"></div>
+		<div id="img1" class="all_img disnon"></div>
+		<div id="img2" class="all_img disnon"></div>
+		<div id="img3" class="all_img disnon"></div>
+		<div id="into_look" class="disnon" >点击照片观看相关视频吧！</div>
+		<a href= "menu.html" target="_self" ><div id="menu" class="disnon" >菜单</div></a>
+		<video id="video1" class="disnon video" controls="controls" src="img/westlake/video1.mp4"></video>
+		<video id="video2" class="disnon video" controls="controls" src="img/westlake/video3.mp4"></video>
+		<video id="video3" class="disnon video" controls="controls" src="img/westlake/video2.mp4"></video>
+	</body>
+	<script>
+		// 星星放大缩小
+		var i=0;
+		var int=self.setInterval("clock()",500);
+		function clock(){
+			i++;
+			if(parseInt(i/2)==i/2){
+				$(".star").addClass("big-show");
+				$(".star").removeClass("small-show");
+				$("#box_repo").addClass("big-show");
+				$("#box_repo").removeClass("small-show");
+			}
+			else{
+				$(".star").removeClass("big-show");
+				$(".star").addClass("small-show");
+				$("#box_repo").removeClass("big-show");
+				$("#box_repo").addClass("small-show");
+			}
+		}
+		// 鼠标悬停星星放大不动
+		$("#s1").mouseover(function(){//鼠标悬停函数
+			clearInterval();
+			$("#s1").addClass("stay-show");
+		})
+		$("#s1").mouseout(function(){//鼠标移除函数
+			$("#s1").removeClass("stay-show");
+			$("#s1").addClass("small-show");
+		})
+		$("#s2").mouseover(function(){//鼠标悬停函数
+			clearInterval();
+			$("#s2").addClass("stay-show");
+		})
+		$("#s2").mouseout(function(){//鼠标移除函数
+			$("#s2").removeClass("stay-show");
+			$("#s2").addClass("small-show");
+		})
+		$("#s3").mouseover(function(){//鼠标悬停函数
+			clearInterval();
+			$("#s3").addClass("stay-show");
+		})
+		$("#s3").mouseout(function(){//鼠标移除函数
+			$("#s3").removeClass("stay-show");
+			$("#s3").addClass("small-show");
+		})
+		
+		
+		//介绍文字逐渐输出
+		var text_start="哈喽，我是亚运吉祥物莲莲。我的设计灵感来源于西湖，名字源于西湖中无穷碧色的接天莲叶。快来点击地图上的地点，了解我身上的西湖元素吧！";
+		var text=text_start;
+		var i=0;
+		var click_num_1=0,click_num_2=0,click_num_3=0;
+		var num=text.length;
+		function show() {
+		        var shower = text.substr(0,i);
+		        document.getElementById("page").innerHTML = shower;
+		        i++;
+		        if(i + 1 >= num){
+		            clearInterval("done");
+		        }
+		    }
+		var done=setInterval("show()",50);
+		
+			//判断是哪个星星被点击
+			$(".star").click(function(e){
+				$("#s1").css("display","none");
+				$("#s2").css("display","none");
+				$("#s3").css("display","none");
+				if(e.target == $("#s1")[0]){
+					text="这里是三潭印月，是我的发顶的设计来源，头顶莲叶上的筋脉与万物互联的符号相符合，中心是三潭印月的标志性符号，象征着杭州对于山水诗性和科技创新的一种独特态度。";
+					i=0;
+					click_num_1++;
+					$("#page").css("font-size","30px");
+					$("#img2").css("display","none");
+					$("#img3").css("display","none");
+					$("#img1").fadeIn(700);
+					$("#into_look").fadeIn(700);
+					$("#return").css("display","block");
+				}else if(e.target == $("#s2")[0]){
+					text="我最喜欢在十里荷花、烟柳画桥和我的荷花朋友一起玩啦！听说...我的衣服纹理就与之旁边波光粼粼的湖面有关呢！";
+					i=0;
+					click_num_2++;
+					$("#img1").css("display","none");
+					$("#img3").css("display","none");
+					$("#img2").fadeIn(700);
+					$("#into_look").fadeIn(700);
+					$("#return").css("display","block");
+			}else if(e.target == $("#s3")[0]){
+					text="这儿这儿！就是远近闻名的雷峰塔了！每当夕阳西下，塔影横空，就形成著名的“雷峰夕照”了";
+					i=0;
+					click_num_3++;
+					$("#img2").css("display","none");
+					$("#img1").css("display","none");
+					$("#img3").fadeIn(700);
+					$("#into_look").fadeIn(700);
+					$("#return").css("display","block");
+			}
+			if(click_num_1!=0 && click_num_2!=0 && click_num_3 !=0){
+				$("#box_repo").css("display","block");
+			}
+			});
+
+			//判断是返回键被点击
+			$("#return").click(function(e){
+				if(e.target==$("#return")[0]){
+					text=text_start;
+					$("#img1").fadeOut(700);
+					$("#img2").fadeOut(700);
+					$("#img3").fadeOut(700);
+					$("#s1").css("display","block");
+					$("#s3").css("display","block");
+					$("#s2").css("display","block");
+					$(".video").css("display","none");
+					$("#page").css("font-size","40px");
+					$("#return").css("display","none");
+					$("#all_cho").css("display","none");
+					$("#into_look").css("display","none");
+				}
+			});
+			//判断图片被点击
+			
+			$("#img1").click(function(e){
+				if(e.target==$("#img1")[0]){
+					$("#img1").css("display","none");
+					$("#video1").css("display","block");
+					$("#video2").css("display","none");
+					$("#video3").css("display","none");
+				}
+			});
+			$("#img2").click(function(e){
+				if(e.target==$("#img2")[0]){
+					$("#img2").css("display","none");
+					$("#video2").css("display","block");
+					$("#video1").css("display","none");
+					$("#video3").css("display","none");
+				}
+			});
+			$("#img3").click(function(e){
+				if(e.target==$("#img3")[0]){
+					$("#img3").css("display","none");
+					$("#video3").css("display","block");
+					$("#video2").css("display","none");
+					$("#video1").css("display","none");
+				}
+			});
+		   //进入答题
+		   var text_1="莲莲的头饰以____为顶呢？<br/>A.三潭印月 B.断桥残雪 C.苏堤春晓 D.曲院风荷";
+		   var text_true="恭喜你，答对啦！点击右上角菜单按钮去了解我的朋友琮琮和宸宸吧！";
+		   var text_false="莲莲的头饰以____为顶呢？<br/>  A.三潭印月 B.断桥残雪 C.苏堤春晓 D.曲院风荷 <br/> 不对噢，你再想想，再选一次吧！";
+		   var exam=1;
+		    $("#box_repo").click(function(e){
+				$(".video").css("display","none");
+				if(e.target==$("#box_repo")[0]){
+					$(".all_img").css("display","none");
+					$(".star").css("display","none");
+					$("#box_repo").css("display","none");
+					
+					$("#all_cho").addClass("c_cont");
+					$("#all_cho").fadeIn(1000);
+					$("#into_look").css("display","none");
+					$("#page").css("top","63%");
+					$("#page").css("line-height","70px");
+					switch(exam){
+						case(1): 
+							text=text_1;
+							exam++;
+							$("#all_cho").click(function(e){
+								if(e.target==$("#A")[0]){
+									text=text_true;
+									$("#menu").fadeIn(700);
+									$("#all_cho").css("display","none");
+									}
+								if(e.target==$("#B")[0]){
+									text=text_false;
+									}
+								if(e.target==$("#C")[0]){
+									text=text_false;
+									}
+								if(e.target==$("#D")[0]){
+									text=text_false;
+									}
+							})
+							break;
+						case(2): 
+							text=text_2;
+							exam++;
+							break;
+						case(3): 
+							text=text_3;
+							
+							break;
+					}
+				
+				}
+			})
+		
+	</script>
+</html>
